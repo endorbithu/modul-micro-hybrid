@@ -22,7 +22,7 @@ class ServiceApiIpValidator
           return $next($request);
       }
       
-        foreach (config('module-micro-hybrid.service_api_hosts', []) as $allowedIp) {
+        foreach (config('module-micro-hybrid.service_namespace_hosts', []) as $allowedIp) {
             $allowedIp = trim($allowedIp);
             if ($allowedIp === '*' || str_starts_with($request->ip(), $allowedIp)) {
                 return $next($request);

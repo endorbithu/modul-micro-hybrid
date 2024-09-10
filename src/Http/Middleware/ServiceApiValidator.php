@@ -29,6 +29,6 @@ class ServiceApiIpValidator
             }
         }
 
-        abort(403, 'Ip address has not set (config: module-micro-hybrid)');
+        abort(403, 'Ip address has not set!');
     }
 }

@@ -1,6 +1,6 @@
 {
     "name": "endorbithu/module-micro-hybrid",
-    "description": "Framework for Laravel module/microservice hybrid",
+    "description": "Package for Laravel module/microservice hybrid framework",
     "authors": [
         {
             "name": "Magyar Bertalan Márton",

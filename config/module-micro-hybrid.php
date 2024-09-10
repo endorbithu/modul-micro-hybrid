@@ -6,6 +6,8 @@ return [
 
     ],
 
+    'ip_filter' => true,
+
     'allowed_ips' => [
         '127.0.0.1'
     ],

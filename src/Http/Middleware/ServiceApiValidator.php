@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ModuleMicroHybrid\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class ServiceApiIpValidator
 {

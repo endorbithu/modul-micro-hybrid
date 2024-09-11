@@ -124,13 +124,13 @@ Note: If the given microservice is not based on PHP/Laravel, the remote microser
 
 ## Contstraints
 
-You must not directly reference a module's namespace, even if it's accessible. Instead, always use `ModuleApi::make('ExampleModule')` service container to refer to the `ExampleModule\Api` class instance. 
+- You must not directly reference a module's namespace, even if it's accessible. Instead, always use `ModuleApi::make('ExampleModule')` service container to refer to the `ExampleModule\Api` class instance. 
 
-For calling methods like `ExampleModule\Api::anyMethod(arg1, arg2, ...)`, the method arguments must only be PHP scalars, null or data models/arrays containing only PHP scalars or null. This is because the parameters will be serialized into a JSON array in the HTTP request body.
+- For calling methods like `ExampleModule\Api::anyMethod(arg1, arg2, ...)`, the method arguments must only be PHP scalars, null or data models/arrays containing only PHP scalars or null. This is because the parameters will be serialized into a JSON array in the HTTP request body.
 
-For return types like `ExampleModule\Api::anyMethod(...): string`, you must use only PHP scalars, null or data models/arrays containing only PHP scalars or null. The return value will be converted into a JSON string in the HTTP response body, as described above.
+- For return types like `ExampleModule\Api::anyMethod(...): string`, you must use only PHP scalars, null or data models/arrays containing only PHP scalars or null. The return value will be converted into a JSON string in the HTTP response body, as described above.
 
-If a database is necessary, you must use an independent database or a separated database segment (identified by a prefix) without any constraints on other parts of the database, so it can be easily migrated to another database.
+- If a database is necessary, you must use an independent database or a separated database segment (identified by a prefix) without any constraints on other parts of the database, so it can be easily migrated to another database.
 
 ## Protection
 

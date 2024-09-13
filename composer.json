@@ -7,19 +7,19 @@
             "email": "service@endorbit.hu"
         }
     ],
-	  "require": {
-		    "illuminate/contracts": "^8.0|^9.0|^10.0|^11.0"
-	  },
-	"autoload": {
-    "psr-4": {
-      "ModuleMicroHybrid\\": "src"
+    "require": {
+        "illuminate/contracts": "^8.0|^9.0|^10.0|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ModuleMicroHybrid\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ModuleMicroHybrid\\Providers\\ServiceProvider"
+            ]
+        }
     }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "ModuleMicroHybrid\\Providers\\ServiceProvider"
-      ]
-    }
-  }
 }

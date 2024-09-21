@@ -49,7 +49,7 @@ class Api
   
     public static function getNamespacesApiEndpoint(string $namespace = ''): null|array|string
     {
-        $eps = config('delocalbase.service_namespace_endpoints', []);
+        $eps = config('module-micro-hybrid.service_namespace_endpoints', []);
 
         if ($namespace === '') return $eps;
 

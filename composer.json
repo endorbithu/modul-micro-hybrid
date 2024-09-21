@@ -12,13 +12,13 @@
     },
     "autoload": {
         "psr-4": {
-            "ModuleMicroHybrid\\": "src"
+            "Endorbit\\ModuleMicroHybrid\\": "src"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "ModuleMicroHybrid\\Providers\\ServiceProvider"
+                "Endorbit\\ModuleMicroHybrid\\Providers\\ServiceProvider"
             ]
         }
     }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Endorbit\ModuleMicroHybrid\Providers;
+namespace EndorbitHu\ModuleMicroHybrid\Providers;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {

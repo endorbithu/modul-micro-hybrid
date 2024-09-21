@@ -11,8 +11,7 @@ app_modules/
         src/            
             Providers/
                 ServiceProvider.php
-            Api.php    
-        composer.json      
+            Api.php
     OtherExampleModule        
         src/     
             Console/
@@ -20,8 +19,7 @@ app_modules/
                     SandboxCommand.php       …            
             Providers/                
                 ServiceProvider.php            
-            Api.php   
-        composer.json      
+            Api.php
 config/    
     module-micro-hybrid.php    
 vendor/    
@@ -41,7 +39,7 @@ vendor/
 
 Modules must be accessed via the `EndorbitHu\ModuleMicroHybrid\ModuleApi` class. The key point is that you must not reference the module directly by its namespace. Instead, call the module’s API class using this service container: `EndorbitHu\ModuleMicroHybrid\ModuleApi::make('OtherModule')`, ensuring there is no implementation dependency.
 
-Example:
+#### One implementation two scenarios:
 ```
 namespace OtherExampleModule\Console\Commands;
 
@@ -56,9 +54,7 @@ class SandboxCommand
 }
 ```
 
-**What happens when:**
-
-1. ExampleModule is part of the same Laravel project
+#### 1. ExampleModule is part of the same Laravel project
 
 Since ExampleModule is local, no remote host is specified for it in the `config/module-micro-hybrid.php` file:
 ```
@@ -69,13 +65,15 @@ Since ExampleModule is local, no remote host is specified for it in the `config/
 In this case the resolvation will be a simple local reference via Laravel service container:
 ```
 ModuleApi::make('ExampleModule')→sayHello('Linda');
+```
 
 ==>
 
+```
 return App::make(\ExampleModule\Api::class)→sayHello('Linda')
 ```
 
-2. ExampleModule has been moved to the other host (hosted in: anotherproject.com) 
+#### 2. ExampleModule has been moved to the other host (hosted in: anotherproject.com) 
 
 The app_modules/ExampleModule directory has been moved to another Laravel project on a different host. The host for this module has been set in the configuration (this config entry enables API communication):
 ```
@@ -86,11 +84,11 @@ The app_modules/ExampleModule directory has been moved to another Laravel projec
 
 ```
 ModuleApi::make('ExampleModule')→sayHello('Linda');
-
+```
 
 ===>
 
-
+```
 //$serviceHost === 'https://anotherproject.com'
 //$servicePath  === 'ExampleModule' 
 //$methodName === 'sayHello'
@@ -123,6 +121,7 @@ The original project's module-micro-hybrid package will still return the same "H
 Note: If the given microservice is not based on PHP/Laravel, the remote microservice can be any HTTP-aware service, regardless of the programming language. We can also use that via the module-micro-hybrid package. It simply needs to handle the {HOST}/apiservice/ExampleModule/getHello endpoint and return an appropriate HTTP response that can be processed by the `module-micro-hybrid` package in the root project.
 
 ## Contstraints
+- A module's namespace must be a top-level namespace `ExampleModule\`
 
 - You must not directly reference a module's namespace, even if it's accessible. Instead, always use `ModuleApi::make('ExampleModule')` service container to refer to the `ExampleModule\Api` class instance. 
 

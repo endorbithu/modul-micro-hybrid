@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Endorbit\ModuleMicroHybrid;
+namespace EndorbitHu\ModuleMicroHybrid;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;

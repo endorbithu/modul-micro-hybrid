@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Endorbit\ModuleMicroHybrid\Http\Middleware;
+namespace EndorbitHu\ModuleMicroHybrid\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
